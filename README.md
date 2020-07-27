@@ -1,7 +1,7 @@
 # Final-Project
 Team Project on predicting election results - Michael Berg, Evan Goodwin, Brian Riordan & Ho Kuan Ivy Leong.
 ## Selected Topic
-For our topic of analysis we decided to look at election datasets to see how predictive dollars spent, incumbent, challenger and other data tiems were in determining the winner of a number of types of elections
+For our topic of analysis we decided to look at election datasets for Congress to see how predictive dollars spent, incumbent, challenger and other data tiems were in determining the winner of a number of types of elections
 ## Reason why we selected the topic
 We were all interested to see factors that could deliver victories in elections, especially given the significance of the upcoming elections in November. Also, we liked that the data set had a clear categorical dependent variable, which made the analysis clearer.
 ## Questions we hope to answer with the data
