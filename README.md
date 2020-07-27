@@ -13,6 +13,8 @@ The primary questions we hope to answer are: 1.) how predictive is money spent o
 4.) If we agree on slack that we are lost or need some sort of assistance, one (or all members) of the team will make time for an additional 10 minute zoom, or phone call as needed to resolve an issue where we are stuck.
 # Technologies Used
 ## Data Cleaning and Analysis
-ERD, SQL and excel are used to perform an exploratory analysis. Further analysis will be completed using python and Jupiter notebook.
+ERD, PostgreSQL and excel are used to perform an exploratory analysis. Further analysis will be completed using python and Jupiter notebook.
+## Database Storage
+We will use Mongo for data storage. 
 ## Dashboard
 We will use tabular, JavaScript and html to create graphs and dashboard.
