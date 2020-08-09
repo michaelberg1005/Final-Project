@@ -23,4 +23,4 @@ For our project we plan to use a number of technologies. Some of these include: 
 6. After we do all of these steps we then need to present our findings in a clean presentation that is easy to understand for our clients, as well as easy to use for any interactive functioanlity.
 
 ## Google Slides Link
-xxx
+https://docs.google.com/presentation/d/10xKFB5ryPeV8kz6_exZ6RQkto3ELsfqogb9BG6I9I3k/edit?usp=sharing
