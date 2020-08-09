@@ -1,206 +1,222 @@
---CREATE TABLES
+----------Open Secrets Data----------
 
-CREATE TABLE reelected_2018 (
-	district TEXT ,
-	winner TEXT PRIMARY KEY NOT NULL,
-	winner_spent TEXT,
-	second_place TEXT,
-	second_spent TEXT,
-	ratio TEXT
-);
-
-CREATE TABLE defeated_2018 (
+--Create open_secrets table
+CREATE TABLE open_secrets (
 	district TEXT,
-	winner TEXT PRIMARY KEY NOT NULL,
-	winner_spent TEXT,
-	second_place TEXT,
-	second_spent TEXT,
-	ratio TEXT
+	name TEXT,	
+	winner TEXT,
+	loser TEXT,
+	incumbent TEXT,
+	challenger TEXT,
+	open TEXT,
+	year TEXT
 );
+-------------------------------------------------------------------------
+----------Census Data----------
 
-CREATE TABLE open_seat_2018 (
+--Create census_2013 table
+CREATE TABLE census_2013 (
 	district TEXT,
-	winner TEXT PRIMARY KEY NOT NULL,
-	winner_spent TEXT,
-	second_place TEXT,
-	second_spent TEXT,
-	ratio TEXT
+	election_year INT,
+	total_pop INT,
+	male_pop_percent FLOAT,
+	female_pop_percent FLOAT,
+	under_five_percent FLOAT,
+	five_to_nine_percent FLOAT,
+	ten_to_fourteen_percent FLOAT,
+	fifteen_nineteen_percent FLOAT,
+	twenty_to_twentyfour_percent FLOAT,
+	twentyfive_to_thirtyfour_percent FLOAT,
+	thirtyfive_to_fortyfour_percent FLOAT,
+	fortyfive_to_fiftyfour_percent FLOAT,
+	fiftyfive_to_fiftynine_percent FLOAT,
+	sixty_to_sixtyfour_percent FLOAT,
+	sixtyfive_to_seventyfour_percent FLOAT,
+	seventyfive_to_eightyfour_percent FLOAT,
+	over_eightyfive_percent FLOAT,
+	median_age FLOAT,
+	eighteen_and_over_percent FLOAT,
+	twentyone_and_over_percent FLOAT,
+	sixtytwo_and_over_percent FLOAT,
+	sixtyfive_and_over_percent FLOAT,
+	eighteen_and_over_male_percent FLOAT,
+	eighteen_and_over_female_percent FLOAT,
+	sixtyfive_and_over_male_percent FLOAT,
+	sixtyfive_and_over_female_percent FLOAT,
+	white_pop_percent FLOAT,
+	black_pop_percent FLOAT,
+	american_indian_alaska_native_pop_percent FLOAT,
+	asian_pop_percent FLOAT,
+	native_hawaiian_pacific_islander_pop_percent FLOAT,
+	other_race_pop_percent FLOAT,
+	hispanic_pop_percent FLOAT,
+	total_housing_units FLOAT
 );
 
--- DROP ratio COLUMN
+--Create census_2015 table
+CREATE TABLE census_2015 (
+	district TEXT,
+	election_year INT,
+	total_pop INT,
+	male_pop_percent FLOAT,
+	female_pop_percent FLOAT,
+	under_five_percent FLOAT,
+	five_to_nine_percent FLOAT,
+	ten_to_fourteen_percent FLOAT,
+	fifteen_nineteen_percent FLOAT,
+	twenty_to_twentyfour_percent FLOAT,
+	twentyfive_to_thirtyfour_percent FLOAT,
+	thirtyfive_to_fortyfour_percent FLOAT,
+	fortyfive_to_fiftyfour_percent FLOAT,
+	fiftyfive_to_fiftynine_percent FLOAT,
+	sixty_to_sixtyfour_percent FLOAT,
+	sixtyfive_to_seventyfour_percent FLOAT,
+	seventyfive_to_eightyfour_percent FLOAT,
+	over_eightyfive_percent FLOAT,
+	median_age FLOAT,
+	eighteen_and_over_percent FLOAT,
+	twentyone_and_over_percent FLOAT,
+	sixtytwo_and_over_percent FLOAT,
+	sixtyfive_and_over_percent FLOAT,
+	eighteen_and_over_male_percent FLOAT,
+	eighteen_and_over_female_percent FLOAT,
+	sixtyfive_and_over_male_percent FLOAT,
+	sixtyfive_and_over_female_percent FLOAT,
+	white_pop_percent FLOAT,
+	black_pop_percent FLOAT,
+	american_indian_alaska_native_pop_percent FLOAT,
+	asian_pop_percent FLOAT,
+	native_hawaiian_pacific_islander_pop_percent FLOAT,
+	other_race_pop_percent FLOAT,
+	hispanic_pop_percent FLOAT,
+	total_housing_units FLOAT
+);
 
-ALTER TABLE reelected_2018
-	DROP COLUMN ratio
-;
+--Create census_2017 table
+CREATE TABLE census_2017 (
+	district TEXT,
+	election_year INT,
+	total_pop INT,
+	male_pop_percent FLOAT,
+	female_pop_percent FLOAT,
+	under_five_percent FLOAT,
+	five_to_nine_percent FLOAT,
+	ten_to_fourteen_percent FLOAT,
+	fifteen_nineteen_percent FLOAT,
+	twenty_to_twentyfour_percent FLOAT,
+	twentyfive_to_thirtyfour_percent FLOAT,
+	thirtyfive_to_fortyfour_percent FLOAT,
+	fortyfive_to_fiftyfour_percent FLOAT,
+	fiftyfive_to_fiftynine_percent FLOAT,
+	sixty_to_sixtyfour_percent FLOAT,
+	sixtyfive_to_seventyfour_percent FLOAT,
+	seventyfive_to_eightyfour_percent FLOAT,
+	over_eightyfive_percent FLOAT,
+	median_age FLOAT,
+	eighteen_and_over_percent FLOAT,
+	twentyone_and_over_percent FLOAT,
+	sixtytwo_and_over_percent FLOAT,
+	sixtyfive_and_over_percent FLOAT,
+	eighteen_and_over_male_percent FLOAT,
+	eighteen_and_over_female_percent FLOAT,
+	sixtyfive_and_over_male_percent FLOAT,
+	sixtyfive_and_over_female_percent FLOAT,
+	white_pop_percent FLOAT,
+	black_pop_percent FLOAT,
+	american_indian_alaska_native_pop_percent FLOAT,
+	asian_pop_percent FLOAT,
+	native_hawaiian_pacific_islander_pop_percent FLOAT,
+	other_race_pop_percent FLOAT,
+	hispanic_pop_percent FLOAT,
+	total_housing_units FLOAT
+);
 
-ALTER TABLE defeated_2018
-	DROP COLUMN ratio
-;
-
-ALTER TABLE open_seat_2018
-	DROP COLUMN ratio
-;
-
--- SPLIT TABLES
-
-SELECT DISTINCT
-	district,
-	winner,
-	winner_spent
-INTO incumbent_won
-FROM reelected_2018
-;
-
-SELECT DISTINCT
-	district,
-	second_place,
-	second_spent
-INTO challenger_lost
-FROM reelected_2018
-;
-	
-SELECT DISTINCT
-	district,
-	winner,
-	winner_spent
-INTO challenger_won
-FROM defeated_2018
-;
-
-SELECT DISTINCT
-	district,
-	second_place,
-	second_spent
-INTO incumbent_lost
-FROM defeated_2018
-;
-
-SELECT DISTINCT
-	district,
-	winner,
-	winner_spent
-INTO open_won
-FROM open_seat_2018
-;
-
-SELECT DISTINCT
-	district,
-	second_place,
-	second_spent
-INTO open_lost
-FROM open_seat_2018
-;
-
-
---ALTER TABLES
-
-ALTER TABLE incumbent_won
-	ADD won INT DEFAULT '1',
-	ADD lost INT DEFAULT '0',
-	ADD incumbent INT DEFAULT '1',
-	ADD challenger INT DEFAULT '0',
-	ADD open_seat INT DEFAULT '0'
-;
-ALTER TABLE incumbent_won
-	RENAME COLUMN winner TO candidate_name
-;
-ALTER TABLE incumbent_won
-	RENAME COLUMN winner_spent TO spent
-;
-
-ALTER TABLE challenger_lost
-	ADD won INT DEFAULT '0',
-	ADD lost INT DEFAULT '1',
-	ADD incumbent INT DEFAULT '0',
-	ADD challenger INT DEFAULT '1',
-	ADD open_seat INT DEFAULT '0'
-;
-ALTER TABLE challenger_lost
-	RENAME COLUMN second_place TO candidate_name
-;
-ALTER TABLE challenger_lost
-	RENAME COLUMN second_spent TO spent
-;
-
-ALTER TABLE challenger_won
-	ADD won INT DEFAULT '1',
-	ADD lost INT DEFAULT '0',
-	ADD incumbent INT DEFAULT '0',
-	ADD challenger INT DEFAULT '1',
-	ADD open_seat INT DEFAULT '0'
-;
-ALTER TABLE challenger_won
-	RENAME COLUMN winner TO candidate_name
-;
-ALTER TABLE challenger_won
-	RENAME COLUMN winner_spent TO spent
-;
-
-ALTER TABLE incumbent_lost
-	ADD won INT DEFAULT '0',
-	ADD lost INT DEFAULT '1',
-	ADD incumbent INT DEFAULT '1',
-	ADD challenger INT DEFAULT '0',
-	ADD open_seat INT DEFAULT '0'
-;
-ALTER TABLE incumbent_lost
-	RENAME COLUMN second_place TO candidate_name
-;
-ALTER TABLE incumbent_lost
-	RENAME COLUMN second_spent TO spent
-;
-
-ALTER TABLE open_won
-	ADD won INT DEFAULT '1',
-	ADD lost INT DEFAULT '0',
-	ADD incumbent INT DEFAULT '0',
-	ADD challenger INT DEFAULT '0',
-	ADD open_seat INT DEFAULT '1'
-;
-ALTER TABLE open_won
-	RENAME COLUMN winner TO candidate_name
-;
-ALTER TABLE open_won
-	RENAME COLUMN winner_spent TO spent
-;
-
-ALTER TABLE open_lost
-	ADD won INT DEFAULT '0',
-	ADD lost INT DEFAULT '1',
-	ADD incumbent INT DEFAULT '0',
-	ADD challenger INT DEFAULT '0',
-	ADD open_seat INT DEFAULT '1'
-;
-ALTER TABLE open_lost
-	RENAME COLUMN second_place TO candidate_name
-;
-ALTER TABLE open_lost
-	RENAME COLUMN second_spent TO spent
-;
-
--------------------------------------------
-
--- JOIN INTO NEW TABLE
-
+--Create census_data table
 SELECT *
-INTO final_table
+INTO census_data
 FROM (
 	SELECT *
-	FROM incumbent_won
+	FROM census_2013
 	UNION ALL
 	SELECT *
-	FROM challenger_lost
+	FROM census_2015
 	UNION ALL
 	SELECT *
-	FROM challenger_won
+	FROM census_2017
+	)a
+;
+--------------------------------------------------------------------------------------------
+
+----------FEC Data----------
+
+--Create fec_2014 table
+CREATE TABLE fec_2014 (
+	state_district TEXT,
+	election INT,
+	name TEXT,
+	party TEXT,
+	incumbent_challenger_open TEXT,
+	receipts FLOAT,
+	from_individuals FLOAT,
+	from_committees FLOAT,
+	from_candidate FLOAT,
+	disbursements FLOAT,
+	cash_on_hand FLOAT,
+	debts FLOAT
+);
+
+--Create fec_2016 table
+CREATE TABLE fec_2016 (
+	state_district TEXT,
+	election INT,
+	name TEXT,
+	party TEXT,
+	incumbent_challenger_open TEXT,
+	receipts FLOAT,
+	from_individuals FLOAT,
+	from_committees FLOAT,
+	from_candidate FLOAT,
+	disbursements FLOAT,
+	cash_on_hand FLOAT,
+	debts FLOAT
+);
+
+--Create fec_2018 table
+CREATE TABLE fec_2018 (
+	state_district TEXT,
+	election INT,
+	name TEXT,
+	party TEXT,
+	incumbent_challenger_open TEXT,
+	receipts FLOAT,
+	from_individuals FLOAT,
+	from_committees FLOAT,
+	from_candidate FLOAT,
+	disbursements FLOAT,
+	cash_on_hand FLOAT,
+	debts FLOAT
+);
+
+--Create fec_data table
+SELECT *
+INTO fec_data
+FROM (
+	SELECT *
+	FROM fec_2014
 	UNION ALL
 	SELECT *
-	FROM incumbent_lost
+	FROM fec_2016
 	UNION ALL
 	SELECT *
-	FROM open_won
-	UNION ALL
-	SELECT *
-	FROM open_lost
-	) a
+	FROM fec_2018
+	)a
+;
+-----------------------------------------------------------------------
+
+--Join fec_data with census_data
+SELECT *
+INTO census_and_fec
+FROM fec_data AS one
+FULL OUTER JOIN census_data AS two
+ON (one.state_district = two.district AND one.election = two.election_year)
 ;
