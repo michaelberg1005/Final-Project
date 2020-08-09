@@ -21,3 +21,6 @@ For our project we plan to use a number of technologies. Some of these include: 
 4. After cleansing the data in an ETL process, we had to do the final loading into a Psotgre SQL databse in order to properly store it, and one that was tied to our RDS in AWS.
 5. Once the data was cleaned and stored we had to run a machine learning lagorithm on top, teach it, and come up with the best possible algorithm to accurately and precisely determine what drives a winning candidate based on historical election data.
 6. After we do all of these steps we then need to present our findings in a clean presentation that is easy to understand for our clients, as well as easy to use for any interactive functioanlity.
+
+## Google Slides Link
+xxx
