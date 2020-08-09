@@ -11,5 +11,6 @@ The primary questions we hope to answer are: 1.) how predictive is money, party 
 2.) A semi-formal meet up once a day (even if for just 10 minutes) to formally fiscuss updates on each persons taks, assigning roles, or simply figuring out questions together as a group.
 3.) Submit all work throug hour group GitHub, and assing one team member to review each others work. Then prior to submitting, each person has a direct line of contact with who they are in charge of reviewing.
 4.) If we agree on slack that we are lost or need some sort of assistance, one (or all members) of the team will make time for an additional 10 minute zoom, or phone call as needed to resolve an issue where we are stuck.
+5.) communicate pull requests to review work done by others
 ### Technologies Used
 For our project we plan to use a number of technologies. Some of these include: 1.) PostgreSQL for hosting our database of all of our data we pulled that we care to analyze; 2.) pgAdmin to use PostgreSQL; 3.)Python to manipulate and store the data 4.)jupyter notebook platform within python to utilize various libraries; 5.) javascript, excel and/or Tableau for visualization, also potentially using JavaScript for pulling data, as well as presenting it; 6.) libraries such as PySpark and BeautifulSoup to run certain functions in the ETL process
