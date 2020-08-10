@@ -24,3 +24,6 @@ For our project we plan to use a number of technologies. Some of these include: 
 
 ## Google Slides Link
 https://docs.google.com/presentation/d/10xKFB5ryPeV8kz6_exZ6RQkto3ELsfqogb9BG6I9I3k/edit?usp=sharing
+
+## Dashboard Blueprint Link
+https://docs.google.com/presentation/d/1oOW0D1sCvxATtmq60Iprb_xR4831wRUckPhUXoE_nt4/edit?usp=sharing
