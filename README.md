@@ -22,6 +22,17 @@ For our project we plan to use a number of technologies. Some of these include: 
 5. Once the data was cleaned and stored we had to run a machine learning lagorithm on top, teach it, and come up with the best possible algorithm to accurately and precisely determine what drives a winning candidate based on historical election data.
 6. After we do all of these steps we then need to present our findings in a clean presentation that is easy to understand for our clients, as well as easy to use for any interactive functioanlity.
 
+## Machine Learning - "Machine_Learning_model.ipynb"
+1. We made the dollar amounts into integers.
+2. We dropped all the duplicated columns, not useful data and some data that did not appy to all the candidates.
+3. Subtracted the election date to the start in office date.
+4. Made dummies for the party and incumbent_challenger_open column.
+5. We used a Random Forest decision tree model.  This was used for the following reasons.
+      - We have 50 features, so the model will be able to utilize the weak learners.
+      - It can handle thousands of input variables without variable deletion..
+      - Helps against overfitting and doesn't get effected by outliars.
+      - The cons are it can take a long time to process, but our data is less than 5,000 rows, so the processing should not overload our system.
+
 ## Google Slides Link
 https://docs.google.com/presentation/d/10xKFB5ryPeV8kz6_exZ6RQkto3ELsfqogb9BG6I9I3k/edit?usp=sharing
 
