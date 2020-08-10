@@ -220,3 +220,29 @@ FROM fec_data AS one
 FULL OUTER JOIN census_data AS two
 ON (one.state_district = two.district AND one.election = two.election_year)
 ;
+
+-----------------------------------------------------------------------
+-- Create the winners_and_losers_joins
+SELECT * 
+INTO winners_and_losers_joins
+FROM winners_and_loser
+LEFT JOIN service_length
+ON winners_and_loser.candidate_name = service_length.name
+
+-----------------------------------------------------------------------
+-- Join the fullname_fec_data with fullname_winners_and_losers
+SELECT * 
+INTO fullname_joined
+FROM fullname_fec_data
+LEFT JOIN fullname_winners_and_losers
+ON fullname_fec_data.first_last_name = fullname_winners_and_losers.first_last_name AND
+fullname_fec_data.election = fullname_winners_and_losers.election_year_from_length;
+
+
+
+-----------------------------------------------------------------------
+-- Create final_tabl_1
+CREATE TABLE final_table_1
+  AS (SELECT *
+      FROM fullname_joined WHERE 1=2);
+
