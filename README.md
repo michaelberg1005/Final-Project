@@ -22,7 +22,7 @@ For our project we plan to use a number of technologies. Some of these include: 
 5. Once the data was cleaned and stored we had to run a machine learning lagorithm on top, teach it, and come up with the best possible algorithm to accurately and precisely determine what drives a winning candidate based on historical election data.
 6. After we do all of these steps we then need to present our findings in a clean presentation that is easy to understand for our clients, as well as easy to use for any interactive functioanlity.
 
-## Machine Learning - "Machine_Learning_model.ipynb"
+## Machine Learning - "Machine_Learning_model-Election.ipynb"
 ### Processing final_table_1
 1. We made the dollar amounts in 'spent' into integers.
 2. We dropped all the duplicated columns, not useful data and some data that did not appy to all the candidates.
