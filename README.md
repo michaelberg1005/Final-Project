@@ -22,8 +22,51 @@ For our project we plan to use a number of technologies. Some of these include: 
 5. Once the data was cleaned and stored we had to run a machine learning lagorithm on top, teach it, and come up with the best possible algorithm to accurately and precisely determine what drives a winning candidate based on historical election data.
 6. After we do all of these steps we then need to present our findings in a clean presentation that is easy to understand for our clients, as well as easy to use for any interactive functioanlity.
 
+## Machine Learning - "Machine_Learning_model-Election.ipynb"
+### Processing final_table_1
+1. We made the dollar amounts in 'spent' into integers.
+2. We dropped all the duplicated columns, not useful data and some data that did not appy to all the candidates.
+3. Subtracted the election date to the start in office date and created the column 'years_in_service'.  Any incumbent gets a value of zero.
+4. Made dummies for the party and incumbent_challenger_open column.
+5. Drop 'lost' column to keep it away from the model.
+6. Grouped ages into larger bins to determine if they will be more useful in the model.
+### Machine Learning round 1
+1.  y = 'win' column
+    X = all other columns
+2. Split into test and train data. 
+3. Scale the data in order to make it more effecitve in the model.
+4. Create a Random Forest Classifier model with a confusion matrix and classification report to show the results.
+5. Used Kfold cross_validation with 5 different tests to see how the model works on 5 different sample.
+6. Sort the features by the importance.
+
+After looking at the feature importance, we determined that many of the features, many of them the demographics, have little effect on the model.
+Anything less than an importance of .001, we took out for the next model. 
+
+### Machine learning round 2
+1. Make a correlation matrix based on all columns.
+2. Use a for loop to find all correlating columns that are greater than 0.7 or less than -0.7
+3. We used the same formula from the first machine learning try, but with the top features, removing the correlated columns and with only the features that have an imortance greater than .01.
+4. This gave us better results through a correlation matrix and classification report.
+5.  We also use a Kfold cross_validation, where the results were better accross the board.
+
+### Final Machine Learning
+1. We created a Randomized Hyperparameter Grid.
+2. Made a RandomizedSearchCV.
+3. Found the best parameters using best_params_ and best_estimator_.
+4. We used the same features from the second round, but used the best parameters for the model.  
+5. Looked at the results in the confusion matrix, classification report and a cross validateion.  They all came out better than the previous two.
+
+ We used a Random Forest decision tree model.  This was used for the following reasons.
+      - We have 50 features, so the model will be able to utilize the weak learners.
+      - It can handle thousands of input variables without variable deletion..
+      - Helps against overfitting and doesn't get effected by outliars.
+      - The cons are it can take a long time to process.  The RandomizedSearch CV takes about 15 minutes to run.
+
 ## Google Slides Link
 https://docs.google.com/presentation/d/10xKFB5ryPeV8kz6_exZ6RQkto3ELsfqogb9BG6I9I3k/edit?usp=sharing
 
 ## Dashboard Blueprint Link
 https://docs.google.com/presentation/d/1oOW0D1sCvxATtmq60Iprb_xR4831wRUckPhUXoE_nt4/edit?usp=sharing
+
+## Dashboard for Week 3
+https://public.tableau.com/profile/ivy.leong#!/vizhome/Dashboard08_165_50pm/Dashboard_baseline?publish=yes
