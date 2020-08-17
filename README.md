@@ -57,7 +57,7 @@ Anything less than an importance of .001, we took out for the next model.
       - Helps against overfitting and doesn't get effected by outliars.
       - The cons are it can take a long time to process.  The RandomizedSearch CV takes about 15 minutes to run.
 
-## Google Slides Link
+## Updated Google Slides Link
 https://docs.google.com/presentation/d/10xKFB5ryPeV8kz6_exZ6RQkto3ELsfqogb9BG6I9I3k/edit?usp=sharing
 
 ## Dashboard Blueprint Link
