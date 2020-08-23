@@ -62,7 +62,7 @@ https://docs.google.com/presentation/d/10xKFB5ryPeV8kz6_exZ6RQkto3ELsfqogb9BG6I9
 ## Dashboard Blueprint Link
 https://docs.google.com/presentation/d/1oOW0D1sCvxATtmq60Iprb_xR4831wRUckPhUXoE_nt4/edit?usp=sharing
 
-## Dashboard for 3
+## Dashboard for Week 3
 https://public.tableau.com/profile/ivy.leong#!/vizhome/Dashboard08_165_50pm/Dashboard_baseline?publish=yes
 
 ## Final Dashboard Week 4
