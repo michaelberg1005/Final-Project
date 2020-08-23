@@ -1,5 +1,5 @@
 # Final-Project
-Team Project on predicting election results - Michael Berg, Evan Goodwin, Brian Riordan & Ho Kuan Ivy Leong.
+Team Project on predicting election results - Michael Berg, Evan Goodwin, Brian Riordan & Ho Kuan Ivy Leong
 ## Selected Topic
 For our topic of analysis we decided to look at election datasets to see how predictive dollars spent, incumbent, challenger and other data tiems were in determining the winner of a number of types of elections
 ## Reason why we selected the topic
